@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import companyRouter from "./routes/company.route.js";
+import jobsRouter from "./routes/jobs.route.js";
 import userRouter from "./routes/user.route.js";
 import connectDB from "./utils/db.js";
  
@@ -31,6 +32,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/company", companyRouter);
+app.use("/api/v1/jobs", jobsRouter);
+
 
 
 

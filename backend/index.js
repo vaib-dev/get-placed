@@ -2,12 +2,11 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
+import applicationRouter from "./routes/application.route.js";
 import companyRouter from "./routes/company.route.js";
 import jobsRouter from "./routes/jobs.route.js";
 import userRouter from "./routes/user.route.js";
 import connectDB from "./utils/db.js";
- 
-
 
 dotenv.config({});
 const app = express();
@@ -29,13 +28,10 @@ app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 
-
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/company", companyRouter);
 app.use("/api/v1/jobs", jobsRouter);
-
-
-
+app.use("/api/v1/application", applicationRouter);
 
 app.listen(PORT, function () {
 	connectDB();
